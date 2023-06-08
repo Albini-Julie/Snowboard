@@ -1,7 +1,28 @@
+
+
 <!doctype html>
 <html>
 
 <head>
+    <script type="text/javascript">
+        var test=false;
+        var test2 = false;
+        var test3 = false;
+        var test4 = false;
+        compteurResult = 1;
+
+        var données = new XMLHttpRequest();
+        données.open('GET', 'https://my-json-server.typicode.com/Lugus-Shopify/hiring/product');
+        données.onreadystatechange = function () {
+            listeBrut = données.responseText;
+            liste = JSON.parse(listeBrut);
+            console.log("la liste : ", liste.description)
+        };
+        données.send();
+
+    </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,12 +31,281 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <h1 >
-        Coucou !
-    </h1>
+
+    <!--Header pour ordinateur-->
+    <div class="responsive">
+        <div style="margin-bottom:50px" class="flex">
+            <div class="header-2">
+                <img style="margin-right:25px; width:59px; height:61px" src="public/Logo.png" alt="logo The Snow Border" />
+                <h3 style="text-transform: uppercase;" class="titre-header">Snowboards</h3>
+                <h3 style="text-transform: uppercase;" class="titre-header">Splitboards</h3>
+                <h3 style="text-transform: uppercase;" class="titre-header">Boots</h3>
+                <h3 style="text-transform: uppercase;" class="titre-header">Fixations</h3>
+                <h3 style="text-transform: uppercase;" class="titre-header">Housses</h3>
+                <h3 style="text-transform: uppercase;" class="titre-header">Divers</h3>
+            </div>
+            <div class="header-3">
+                <img src="public/LoupeIcon.png" alt="icon loupe" />
+                <img src="public/AccountIcon.png" alt="icon personne" />
+                <img src="public/CartIcon.png" alt="icon carte" />
+            </div>
+        </div>
+    </div>
+
+    <!--Header pour mobile-->
+    <div class="responsive-2">
+        <div class="headerMobile">
+            <div>
+                <img src="public/MenuIcon.png" alt="icon menu Hamburger"/>
+            </div>
+            <div>
+                <img src="public/LogoMobile.png" alt="logo The Snow Border" />
+            </div>
+            <div class="header-3">
+                <img src="public/LoupeIcon.png" alt="icon loupe" />
+                <img src="public/CartIcon.png" alt="icon carte" />
+            </div>
+        </div>
+    </div>
+
+    <!--Présentation du Snowboard-->
+    <div class="flex-2">
+        <img src="public/ProduitImage.png" alt="image snowboard"/>
+        <div>
+            <h2 style="text-transform: uppercase;" class="FjallaOne Titre">The Collection Snowboard : Hydrogen</h2>
+
+            <p class="Prix FjallaOne" style="color:rgba(67, 116, 239, 1);">2.629,95 €</p>
+
+            <!--Couleur-->
+            <p class="Cabin" style="font-size:13px; color:rgba(108, 108, 108, 1)">Couleur</p>
+            <div style="display:flex; gap:20px">
+                <button onclick="test = !test, change()" id="button" class="bouton">
+                    <p id="text" onclick="test2 = !test2, changeText()" class="Cabin text-bouton">Bleu</p>
+                </button>
+                <button onclick="test = !test, change()" id="button2" class="bouton">
+                    <p id="text2" onclick="test2 = !test2, changeText()" class="Cabin text-bouton">Jaune</p>
+                </button>
+            </div>
+            
+            <!--Taille-->
+            <p class="Cabin" style="margin-top:25px; text-transform: uppercase; font-size:13px; color:rgba(108, 108, 108, 1)">Taille</p>
+            <div style="display:flex; gap:20px">
+                <button onclick="test3 = !test3, change2()" id="button3" class="bouton">
+                    <p id="text3" onclick="test4 = !test4, changeText2()" class="Cabin text-bouton">M</p>
+                </button>
+                <button onclick="test3 = !test3, change2()" id="button4" class="bouton">
+                    <p id="text4" onclick="test4 = !test4, changeText2()" class="Cabin text-bouton">L</p>
+                </button>
+            </div>
+
+            <!--Compteur-->
+            <div class="CPTbloc" style="display:flex; ">
+                <button onclick="compteurM()" style="border-bottom-left-radius: 4px; border-top-left-radius: 4px;" class="boutonCompteur"><span class="CPTicon FjallaOne">-</span></button>
+                <button class="boutonCompteur boutonCompteurNB FjallaOne"><span id="compteurResult">1</span></button>
+                <button onclick="compteurP()" style="border-bottom-right-radius: 4px; border-top-right-radius: 4px;" class="boutonCompteur"><span class="CPTicon FjallaOne">+</span></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Présentation du Snowboard
+    <div v-for='produit in liste' :key='produit.id'> 
+        <img :src="produit.variant.image" alt="image du snowboard"/>
+        <div>
+            <h2>{{produit.title}}</h2>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.write(liste)
+    </script>-->
+
+
+    <!--Footer pour ordinateur-->
+    <div class="responsive">
+        <div class="flex" style="width:40% ;">
+            <div>
+                <img style="width:124px ; margin-right:25px" src="public/Logo.png" alt="logo The Snow Border" />
+            </div>
+            <div>
+                <h3 class="titre-header" style="font-size: 16px;">Contact us</h3>
+                <h3 class="titre-header" style="font-size: 16px;">About</h3>
+                <h3 class="titre-header" style="font-size: 16px;">Stores</h3>
+                <h3 class="titre-header" style="font-size: 16px;">Help Center</h3>
+                <h3 class="titre-header" style="font-size: 16px;">Legal notice</h3>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer pour mobile-->
+    <div class="responsive-2">
+        <div style="display:flex ; 	flex-direction: column ; align-items: center;">
+                <img style="margin-right:25px; width:59px; height:61px" src="public/Logo.png" alt="logo The Snow Border" />
+                <div style="margin-top:40px">
+                    <h3 class="titre-header" style="font-size: 16px;">Contact us</h3>
+                    <h3 class="titre-header" style="font-size: 16px;">About</h3>
+                    <h3 class="titre-header" style="font-size: 16px;">Stores</h3>
+                    <h3 class="titre-header" style="font-size: 16px;">Help Center</h3>
+                    <h3 class="titre-header" style="font-size: 16px;">Legal notice</h3>
+                </div>
+        </div>
+    </div>
+
+    <!--Ligne copyright-->
+    <div style="display:flex; justify-content: center;">
+        <p style="color:rgb(82,82,82,1); font-size: 12px; font-family: 'Cabin'; font-weight: 400;">© 2023, Test technique Lugus Powered by Shopify</p>
+    </div>
+
 </body>
 
 </html>
+
+
+<style>
+
+@media(max-width: 767px) {
+  .responsive {
+    	display: none;
+  }
+
+  .Titre{
+        font-size:20px;
+
+    }
+
+    .Prix{
+        font-size:18px;
+    }
+
+    .CPTicon{
+        font-size:20px;
+    }
+
+    .boutonCompteurNB{
+        font-size:16px;
+    }
+
+    .CPTbloc{
+        margin-top:70px;
+    }
+}
+
+@media(min-width: 767px) {
+  .responsive-2 {
+    	display: none;
+  }
+
+  .Titre{
+        font-size:30px;
+    }
+
+    .Prix{
+        font-size:25px;
+    }
+
+    .CPTicon{
+        font-size:25px;
+    }
+
+    .boutonCompteurNB{
+        font-size:20px
+    }
+
+    .CPTbloc{
+        margin-top:30px;
+    }
+}
+    .boutonCompteur{
+        background-color: #4374EF;
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:20px;
+        padding-right:20px;
+        color:#FFFFFF;
+        border:none;
+        margin-top:0px;
+        margin-bottom:0px;
+    }
+
+    .bouton{
+        display:flex; 
+        justify-content:center;
+        border:solid;
+        border-width: 1px;
+        background-color: rgb(255,255,255,1);
+        border-color:rgba(67, 116, 239, 1);
+        border-radius: 1.5rem;
+         width: max-content; 
+        padding-left:27px; 
+        padding-right:27px; 
+        padding-top:8px; 
+        padding-bottom:8px;
+        
+    } 
+
+
+    .text-bouton{
+         margin-top:0px; 
+         margin-bottom:0px; 
+         text-transform: uppercase; 
+         font-size:15px; 
+         color:#4374EF;
+    }
+
+    .FjallaOne{
+        font-family: 'Fjalla One';
+        font-weight: 400;
+    }
+
+    .Cabin{
+        font-family: 'Cabin';
+        font-weight: 400;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    .flex-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap:wrap;
+    }
+
+    .headerMobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .header-2 {
+        display: flex;
+        justify-content: center;
+        gap:15px
+    }
+
+    .header-3 {
+        display: flex;
+        justify-content: center;
+        gap:20px
+    }
+
+    .titre-header {
+        font-family: 'Cabin', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+    }
+</style>
