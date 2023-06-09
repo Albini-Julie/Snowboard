@@ -4,24 +4,6 @@
 <html>
 
 <head>
-    <script type="text/javascript">
-        var test=false;
-        var test2 = false;
-        var test3 = false;
-        var test4 = false;
-        compteurResult = 1;
-
-        var données = new XMLHttpRequest();
-        données.open('GET', 'https://my-json-server.typicode.com/Lugus-Shopify/hiring/product');
-        données.onreadystatechange = function () {
-            listeBrut = données.responseText;
-            liste = JSON.parse(listeBrut);
-            console.log("la liste : ", liste.description)
-        };
-        données.send();
-
-    </script>
-
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,8 +23,7 @@
     <script src="script.js"></script>
 </head>
 
-<body>
-
+<header>
     <!--Header pour ordinateur-->
     <div class="responsive">
         <div style="margin-bottom:50px" class="flex">
@@ -67,7 +48,7 @@
     <div class="responsive-2">
         <div class="headerMobile">
             <div>
-                <img src="public/MenuIcon.png" alt="icon menu Hamburger"/>
+                <img src="public/MenuIcon.png" alt="icon menu Hamburger" />
             </div>
             <div>
                 <img src="public/LogoMobile.png" alt="logo The Snow Border" />
@@ -78,10 +59,29 @@
             </div>
         </div>
     </div>
+</header>
+
+<body>
+
+
+    Présentation du Snowboard
+    <div v-for='produit in liste' :key='produit.id'>
+        <img :src="produit.variant.image" alt="image du snowboard" />
+        <div>
+            <h2>{{produit.title}}</h2>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        document.write(liste)
+    </script>
+
+    
+
 
     <!--Présentation du Snowboard-->
     <div class="flex-2">
-        <img src="public/ProduitImage.png" alt="image snowboard"/>
+        <img class="Image" src="public/ProduitImage.png" alt="image snowboard"/>
         <div>
             <h2 style="text-transform: uppercase;" class="FjallaOne Titre">The Collection Snowboard : Hydrogen</h2>
 
@@ -113,7 +113,7 @@
                 ultricies sagittis tortor in consequat. Fusce aliquet velit ac magna mollis dignissim.</p>
 
             <!--Boutons-->
-            <div style="display: flex; flex-direction: column; gap:8px; margin-top:35px">
+            <div class="BoutonsAchat" style="margin-top:35px;display: flex; flex-direction: column; ">
                 <button class="GBouton" style="border:solid; border-color:#4374EF; border-width:1px; color:#4374EF;
                 background-color: #FFFFFF; ">Ajouter au panier</button>
                 <button class="GBouton" style="color:#FFFFFF; border:none; background-color: #4374EF; ">Acheter maintenant</button>
@@ -121,23 +121,59 @@
         </div>
     </div>
 
+    <!--Section avis-->
+    <div class="FlexCol">
+        <h2 style="text-transform: uppercase; margin-bottom: 0px;" class="FjallaOne Titre2">Ce qu'ils en pensent</h2>
+        <p class="Avis Cabin" style="font-weight:600; color:#4374EF;">4,1/5 (10 avis)</p>
+        
+        <!--Cases avis-->
+        <div style="margin-top:30px" class="FlexCol AvisConteneur">
+            <div class="AvisBloc" style="background-color:rgba(246, 248, 252, 1); ">
+                <div class="AvisBloc2" style="display:flex; justify-content: space-between;">
+                    <p class="Cabin AvisDes" style="font-weight: 600; width:75%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod eu nibh non rutrum.</p>
+                    <p class="Cabin Avis2" style="font-weight: 700; color:#4374EF">4,3/5</p>
+                </div>
+                <p class="AvisDes Cabin" style="color:rgba(181, 181, 181, 1); font-weight: 600; margin:0px">John Doe</p>
+            </div>
 
+            <div class="AvisBloc" style="background-color:rgba(246, 248, 252, 1); ">
+                <div class="AvisBloc2" style="display:flex; justify-content: space-between;">
+                    <p class="Cabin AvisDes" style="font-weight: 600; width:75%">Donec lacinia, eros vel elementum ornare, mi sem 
+                        iaculis ipsum, vitae cursus magna velit sed ligula. Donec vel neque turpis.</p>
+                    <p class="Cabin Avis2" style="font-weight: 700; color:#4374EF">4,3/5</p>
+                </div>
+                <p class="AvisDes Cabin" style="color:rgba(181, 181, 181, 1); font-weight: 600; margin:0px">John Doe</p>
+            </div>
 
-    <!--Présentation du Snowboard
-    <div v-for='produit in liste' :key='produit.id'> 
-        <img :src="produit.variant.image" alt="image du snowboard"/>
-        <div>
-            <h2>{{produit.title}}</h2>
+            <div class="AvisBloc" style="background-color:rgba(246, 248, 252, 1); ">
+                <div class="AvisBloc2" style="display:flex; justify-content: space-between;">
+                    <p class="Cabin AvisDes" style="font-weight: 600; width:75%">Aliquam imperdiet egestas eros.</p>
+                    <p class="Cabin Avis2" style="font-weight: 700; color:#4374EF">4,3/5</p>
+                </div>
+                <p class="AvisDes Cabin" style="color:rgba(181, 181, 181, 1); font-weight: 600; margin:0px">John Doe</p>
+            </div>
+
+            <div class="AvisBloc" style="background-color:rgba(246, 248, 252, 1); ">
+                <div class="AvisBloc2" style="display:flex; justify-content: space-between;">
+                    <p class="Cabin AvisDes" style="font-weight: 600; width:75%">Aliquam imperdiet egestas eros, vitae vestibulum 
+                        est luctus congue. Donec felis lacus, ultricies non pellentesque ut, tempus ac leo.</p>
+                    <p class="Cabin Avis2" style="font-weight: 700; color:#4374EF">4,3/5</p>
+                </div>
+                <p class="AvisDes Cabin" style="color:rgba(181, 181, 181, 1); font-weight: 600; margin:0px">John Doe</p>
+            </div>
+
+            <div class="AvisBloc" style="background-color:rgba(246, 248, 252, 1); ">
+                <div class="AvisBloc2" style="display:flex; justify-content: space-between;">
+                    <p class="Cabin AvisDes" style="font-weight: 600; width:75%">Sed molestie euismod accumsan.</p>
+                    <p class="Cabin Avis2" style="font-weight: 700; color:#4374EF">4,3/5</p>
+                </div>
+                <p class="AvisDes Cabin" style="color:rgba(181, 181, 181, 1); font-weight: 600; margin:0px">John Doe</p>
+            </div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        document.write(liste)
-    </script>-->
-
-
     <!--Footer pour ordinateur-->
-    <div class="responsive">
+    <div class="responsive Footer">
         <div class="flex" style="width:40% ;">
             <div>
                 <img style="width:124px ; margin-right:25px" src="public/Logo.png" alt="logo The Snow Border" />
@@ -153,10 +189,10 @@
     </div>
 
     <!--Footer pour mobile-->
-    <div class="responsive-2">
-        <div style="display:flex ; 	flex-direction: column ; align-items: center;">
+    <div class="responsive-2 Footer">
+        <div class="FlexCol"">
                 <img style="margin-right:25px; width:59px; height:61px" src="public/Logo.png" alt="logo The Snow Border" />
-                <div style="margin-top:40px">
+                <div style="margin-top:20px">
                     <h3 class="titre-header" style="font-size: 16px;">Contact us</h3>
                     <h3 class="titre-header" style="font-size: 16px;">About</h3>
                     <h3 class="titre-header" style="font-size: 16px;">Stores</h3>
@@ -167,7 +203,7 @@
     </div>
 
     <!--Ligne copyright-->
-    <div style="display:flex; justify-content: center;">
+    <div class="Copy" style="display:flex; justify-content: center;">
         <p style="color:rgb(82,82,82,1); font-size: 12px; font-family: 'Cabin'; font-weight: 400;">© 2023, Test technique Lugus Powered by Shopify</p>
     </div>
 
@@ -185,11 +221,17 @@
 
   .Titre{
         font-size:20px;
-
+        margin-top:62px;
+    }
+    
+    .Titre2{
+        font-size:18px;
+        margin-top:74px;
     }
 
     .Prix{
         font-size:18px;
+        margin-bottom:25px;
     }
 
     .CPTicon{
@@ -201,7 +243,7 @@
     }
 
     .CPTbloc{
-        margin-top:35px;
+        margin-top:56px;
         width:111px;
     }
 
@@ -209,7 +251,58 @@
         width:100%;
         display: flex;
         justify-content: center;
+        
     }
+
+    .BoutonsAchat{
+        align-items: center; 
+        gap:8px; 
+    }
+
+    .Image{
+        width: 100%;
+    }
+
+    body{
+        margin-right:25px;
+        margin-left:25px;
+    }
+
+    .Avis{
+        font-size:16px;
+        margin-top:11px;
+    }
+
+    .AvisBloc{
+        padding: 15px;
+        width:343px;
+    }
+
+    .AvisDes{
+        font-size: 13px;
+    }
+
+    .Avis2{
+        font-size: 14px;
+    }
+
+    .AvisBloc2{
+        gap:25px;
+    }
+
+    .AvisConteneur{
+        gap:15px;
+    }
+
+    .Footer{
+        margin-top:74px;
+    }
+
+    .Copy{
+        margin-top: 44px;
+        margin-bottom:111px;
+    }
+
 }
 
 @media(min-width: 767px) {
@@ -221,8 +314,14 @@
         font-size:30px;
     }
 
+    .Titre2{
+        font-size:25px;
+        margin-top:253px;
+    }
+
     .Prix{
         font-size:25px;
+        margin-bottom:27px;
     }
 
     .CPTicon{
@@ -234,15 +333,59 @@
     }
 
     .CPTbloc{
-        margin-top:39px;
+        margin-top:37px;
         width:129px;
     }
 
+    .BoutonsAchat{
+        gap:15px; 
+    }
+
     .Description{
-        width:60%;
-        
+        width:60%;       
+    }
+
+    .Avis{
+        font-size:18px;
+        margin-top:8px;
+    }
+
+    .AvisBloc{
+        padding: 20px;
+        width:604px;
+    }
+
+    .AvisConteneur{
+        gap:23px;
+    }
+
+    .AvisDes{
+        font-size: 15px;
+    }
+    
+    .Avis2{
+        font-size: 16px;
+    }
+
+    .AvisBloc2{
+        gap:35px;
+    }
+
+    .Footer{
+        margin-top: 219px;
+    }
+
+    .Copy{
+        margin-top: 111px;
+        margin-bottom:40px;
     }
 }
+
+    .FlexCol{
+        display:flex ; 
+        flex-direction: column ; 
+        align-items: center;
+    }
 
     .GBouton{
         margin-top: 0px; 
@@ -321,8 +464,10 @@
 
     .headerMobile {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+        margin-top:25px;
+        margin-bottom:49px;
     }
 
     .header-2 {
