@@ -56,3 +56,46 @@ function compteurP() {
     }
 }
 
+var test=false;
+        var test2 = false;
+        var test3 = false;
+        var test4 = false;
+        compteurResult = 1;
+
+
+        var donnees = new XMLHttpRequest();
+        donnees.open('GET', 'https://my-json-server.typicode.com/Lugus-Shopify/hiring/product');
+        donnees.onreadystatechange = function () {
+            listeBrut = donnees.responseText;
+            liste = JSON.parse(listeBrut);
+            console.log("la liste : ", liste);
+            return (liste) 
+        };
+        donnees.send();
+
+//**var xhr = new XMLHttpRequest();
+//**xhr.onreadystatechange = function() {
+    //**if (xhr.readyState === 4 && xhr.status === 200) {
+     //**   var response = JSON.parse(xhr.responseText);
+        // Traitez les données de réponse ici
+    //**}
+//**};
+//**xhr.open('GET', 'https://my-json-server.typicode.com/Lugus-Shopify/hiring/product', true);
+//**xhr.send();
+//** console.log(xhr)
+ //**xhr.onreadystatechange = function() {
+ //**   if (xhr.readyState === 4 && xhr.status === 200) {
+  //**      var response = JSON.parse(xhr.responseText);
+   //**     var resultElement = document.getElementById('result');
+       
+        // Manipulez les données JSON et générez le contenu HTML
+     //**   var htmlContent = '';
+     //**   for (var i = 0; i < response.length; i++) {
+     //**       var item = response[i];
+     //**       htmlContent += '<p>' + item.property + '</p>'; // Exemple : afficher une propriété de l'objet JSON
+     //**   }
+       
+        // Mettez à jour le contenu de l'élément HTML avec les données
+     //**   resultElement.innerHTML = htmlContent;
+ //**   }
+//**};
