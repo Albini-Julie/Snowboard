@@ -63,7 +63,7 @@ var test=false;
         compteurResult = 1;
 
 
-        var donnees = new XMLHttpRequest();
+       var donnees = new XMLHttpRequest();
         donnees.open('GET', 'https://my-json-server.typicode.com/Lugus-Shopify/hiring/product');
         donnees.onreadystatechange = function () {
             listeBrut = donnees.responseText;
@@ -77,7 +77,6 @@ var test=false;
 //**xhr.onreadystatechange = function() {
     //**if (xhr.readyState === 4 && xhr.status === 200) {
      //**   var response = JSON.parse(xhr.responseText);
-        // Traitez les données de réponse ici
     //**}
 //**};
 //**xhr.open('GET', 'https://my-json-server.typicode.com/Lugus-Shopify/hiring/product', true);
@@ -88,14 +87,14 @@ var test=false;
   //**      var response = JSON.parse(xhr.responseText);
    //**     var resultElement = document.getElementById('result');
        
-        // Manipulez les données JSON et générez le contenu HTML
+        
      //**   var htmlContent = '';
      //**   for (var i = 0; i < response.length; i++) {
      //**       var item = response[i];
      //**       htmlContent += '<p>' + item.property + '</p>'; // Exemple : afficher une propriété de l'objet JSON
      //**   }
        
-        // Mettez à jour le contenu de l'élément HTML avec les données
+        
      //**   resultElement.innerHTML = htmlContent;
  //**   }
 //**};
